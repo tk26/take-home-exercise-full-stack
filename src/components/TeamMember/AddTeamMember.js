@@ -1,6 +1,7 @@
 import React from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import Axios from 'axios';
 
 class AddTeamMember extends React.Component {
   render() {
@@ -14,6 +15,7 @@ class AddTeamMember extends React.Component {
           photoUrl: '',
           favoriteColor: ''
         }}
+
         validationSchema={
           Yup.object().shape({
             firstName: Yup.string()
@@ -38,10 +40,30 @@ class AddTeamMember extends React.Component {
               .url('Please enter a valid photo URL')
           })
         }
-        onSubmit={fields => {
-          alert('SUCCESS!! :-)\n\n' + JSON.stringify(fields, null, 4))
+
+        onSubmit={(fields, actions) => {
+          // delete bad data before posting
+          if (!fields.photoUrl) {
+            delete fields['photoUrl'];
+          }
+
+          if (!fields.favoriteColor) {
+            delete fields['favoriteColor'];
+          }
+
+          Axios.post('/team', fields)
+            .then(response => {
+              actions.setSubmitting(false);
+              actions.resetForm();
+              // reload with skipping the cache
+              window.location.reload(true);
+            })
+            .catch(error => {
+              actions.setSubmitting(false);
+            })
         }}
-        render={({ errors, status, touched }) => (
+
+        render={({ errors, status, touched, isSubmitting }) => (
           <div id="addTeamMember">
             <h3 style={{ paddingBottom: 20 }} >Can't wait to have you :)</h3>
             <Form>
@@ -81,7 +103,7 @@ class AddTeamMember extends React.Component {
                 <ErrorMessage name="photoUrl" component="div" className="invalid-feedback" />
               </div>
               <div className="form-group">
-                <button type="submit" className="join">Join</button>
+                <button type="submit" className="join" disabled={isSubmitting}>Join</button>
               </div>
             </Form>
           </div>
