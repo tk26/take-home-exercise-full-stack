@@ -34,7 +34,7 @@ class TeamMember extends React.PureComponent {
           <h2 className="title">{this.props.title}</h2>
           <h1 className="name">{this.props.name}</h1>
         </header>
-        <button className="join" hidden={!this.props.joinEnabled}>
+        <button className="join" onClick={() => document.getElementById('addTeamMember').scrollIntoView()} hidden={!this.props.joinEnabled}>
           Join the team!
         </button>
         <div className="body">{this.props.story}</div>

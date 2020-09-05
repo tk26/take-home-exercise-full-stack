@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import TeamMember from '../TeamMember';
+import {TeamMember, AddTeamMember} from '../TeamMember';
 import './App.css';
 
 class App extends React.Component {
@@ -53,6 +53,7 @@ class App extends React.Component {
         ))}
         {/* Make this new team member link to your form! */}
         <TeamMember id="new" name="Hey, You :)" title="New Teammate" joinEnabled={true} />
+        <AddTeamMember/>
       </div>
     );
   }
