@@ -9,13 +9,15 @@ class TeamMember extends React.PureComponent {
     title: PropTypes.string.isRequired,
     photoUrl: PropTypes.string,
     story: PropTypes.string,
-    favoriteColor: PropTypes.string
+    favoriteColor: PropTypes.string,
+    joinEnabled: PropTypes.bool
   };
 
   static defaultProps = {
     photoUrl: MatterEmptyAvatar,
     story: null,
-    favoriteColor: '#3466F2'
+    favoriteColor: '#3466F2',
+    joinEnabled: false
   };
 
   render() {
@@ -32,6 +34,9 @@ class TeamMember extends React.PureComponent {
           <h2 className="title">{this.props.title}</h2>
           <h1 className="name">{this.props.name}</h1>
         </header>
+        <button className="join" onClick={() => document.getElementById('addTeamMember').scrollIntoView()} hidden={!this.props.joinEnabled}>
+          Join the team!
+        </button>
         <div className="body">{this.props.story}</div>
         <footer style={{ backgroundColor: this.props.favoriteColor }}>
           <div className="full-width-flex-box">
