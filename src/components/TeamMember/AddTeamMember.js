@@ -42,7 +42,7 @@ class AddTeamMember extends React.Component {
         }
 
         onSubmit={(fields, actions) => {
-          // delete before posting, don't throw bad data into backend
+          // delete bad data before posting
           if (!fields.photoUrl) {
             delete fields['photoUrl'];
           }
