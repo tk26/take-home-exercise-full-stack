@@ -48,10 +48,11 @@ class App extends React.Component {
             photoUrl={member.photoUrl}
             story={member.story}
             favoriteColor={member.favoriteColor}
+            joinEnabled={false}
           />
         ))}
         {/* Make this new team member link to your form! */}
-        <TeamMember id="new" name="Join us!" title="New Teammate" />
+        <TeamMember id="new" name="Hey, You :)" title="New Teammate" joinEnabled={true} />
       </div>
     );
   }
