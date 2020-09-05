@@ -65,41 +65,40 @@ class AddTeamMember extends React.Component {
 
         render={({ errors, status, touched, isSubmitting }) => (
           <div id="addTeamMember">
-            <h3 style={{ paddingBottom: 20 }} >Can't wait to have you :)</h3>
+            <h2 style={{ paddingBottom: 20 }} >Can't wait to have you :)</h2>
             <Form>
               <div className="row">
                 <div className="col form-group">
                   <label htmlFor="firstName">First Name</label>
-                  <Field name="firstName" type="text" placeholder="Jon" className={'form-control' + (errors.firstName && touched.firstName ? ' is-invalid' : '')} />
+                  <Field id="firstName" name="firstName" type="text" placeholder="Jon" className={'form-control' + (errors.firstName && touched.firstName ? ' is-invalid' : '')} />
                   <ErrorMessage name="firstName" component="div" className="invalid-feedback" />
                 </div>
                 <div className="col form-group">
                   <label htmlFor="lastName">Last Name</label>
-                  <Field name="lastName" type="text" placeholder="Snow" className={'form-control' + (errors.lastName && touched.lastName ? ' is-invalid' : '')} />
+                  <Field id="lastName" name="lastName" type="text" placeholder="Snow" className={'form-control' + (errors.lastName && touched.lastName ? ' is-invalid' : '')} />
                   <ErrorMessage name="lastName" component="div" className="invalid-feedback" />
                 </div>
               </div>
               <div className="row">
                 <div className="col form-group">
                   <label htmlFor="title">Title</label>
-                  <Field name="title" type="text" placeholder="True heir" className={'form-control' + (errors.title && touched.title ? ' is-invalid' : '')} />
+                  <Field id="title" name="title" type="text" placeholder="True heir" className={'form-control' + (errors.title && touched.title ? ' is-invalid' : '')} />
                   <ErrorMessage name="title" component="div" className="invalid-feedback" />
                 </div>
                 <div className="col form-group">
                   <label htmlFor="favoriteColor">Favorite Color</label>
-                  <Field name="favoriteColor" type="text" placeholder="#FFFAFA" className={'form-control' + (errors.favoriteColor && touched.favoriteColor ? ' is-invalid' : '')} />
+                  <Field id="favoriteColor" name="favoriteColor" type="text" placeholder="#FFFAFA" className={'form-control' + (errors.favoriteColor && touched.favoriteColor ? ' is-invalid' : '')} />
                   <ErrorMessage name="favoriteColor" component="div" className="invalid-feedback" />
                 </div>
               </div>
               <div className="form-group">
                 <label htmlFor="story">Story</label>
-                <Field name="story" as="textarea" style={{ height: 200 }} placeholder="One of the best feedbacks I've ever received was that I know nothing!" className={'form-control' + (errors.story && touched.story ? ' is-invalid' : '')} />
+                <Field id="story" name="story" as="textarea" style={{ height: 200 }} placeholder="One of the best feedbacks I've ever received was that I know nothing!" className={'form-control' + (errors.story && touched.story ? ' is-invalid' : '')} />
                 <ErrorMessage name="story" component="div" className="invalid-feedback" />
               </div>
-              
               <div className="form-group">
                 <label htmlFor="photoUrl">Photo URL</label>
-                <Field name="photoUrl" type="text" placeholder="https://upload.wikimedia.org/wikipedia/en/3/30/Jon_Snow_Season_8.png" className={'form-control' + (errors.photoUrl && touched.photoUrl ? ' is-invalid' : '')} />
+                <Field id="photoUrl" name="photoUrl" type="text" placeholder="https://upload.wikimedia.org/wikipedia/en/3/30/Jon_Snow_Season_8.png" className={'form-control' + (errors.photoUrl && touched.photoUrl ? ' is-invalid' : '')} />
                 <ErrorMessage name="photoUrl" component="div" className="invalid-feedback" />
               </div>
               <div className="form-group">

@@ -38,7 +38,9 @@ class TeamMember extends React.PureComponent {
           Join the team!
         </button>
         <div className="body">{this.props.story}</div>
-        <footer style={{ backgroundColor: this.props.favoriteColor }}>
+        <footer style={{ backgroundColor: this.props.favoriteColor,
+          color: (parseInt(this.props.favoriteColor.replace('#', ''), 16) > 0xffffff / 2) ? '#000' : '#fff'
+        }}>
           <div className="full-width-flex-box">
             <div className="one-third-flex-box stat">9.0</div>
             <div className="one-third-flex-box stat bordered">9.0</div>
